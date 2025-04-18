@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.theme-scope {
+    color: #444444;
+    font-family: 'Roboto', serif;
+    letter-spacing: 0;
+    background-color: #191a1a;
+    overflow-x: hidden;
+}
+
+.theme-scope a {
+    color: #aa8a39;
+    text-decoration: none;
+}
+
+.theme-scope a:hover {
+    color: #aa8a39;
+    text-decoration: none;
+}
+
+.theme-scope h1 {
+    font-size: 105px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+}
+
+.theme-scope h2 {
+    font-size: 43px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+}
+
+.theme-scope h3 {
+    font-size: 36px;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+}
+
+.theme-scope h3 span {
+    color: #aa8a39;
+}
+
+.theme-scope h4 {
+    font-size: 95px;
+    font-weight: 700;
+    color: #aa8a39;
+    float: left;
+    width: 100%;
+    line-height: 55px;
+}
+
+.theme-scope h4 span {
+    font-size: 29px;
+    font-weight: 300;
+    color: #ffffff;
+    width: 100%;
+    float: left;
+}
+
+.theme-scope .bg-gold {
+    background-color: #aa8a39;
+}
+
+.theme-scope .border-top-1 {
+    border-top: 1px solid #f5e2b3;
+}
+
+.theme-scope .border-bot-1 {
+    border-bottom: 1px solid #f5e2b3 !important;
+}
+
+.theme-scope p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.theme-scope .m-0 {
+    margin: 0;
+}
+
+.theme-scope .uppercase {
+    text-transform: uppercase;
+}
+
+.theme-scope .grey-txt {
+    color: #838383;
+}
+
+.theme-scope .weight-300 {
+    font-weight: 300;
+}
+
+.theme-scope .pt-50 {
+    padding-top: 50px;
+}
+
+.theme-scope .pb-50 {
+    padding-bottom: 50px;
+}
+
+.theme-scope .pt-75 {
+    padding-top: 75px;
+}
+
+.theme-scope .pb-75 {
+    padding-bottom: 75px;
+}
+
+.theme-scope .br-1 {
+    border-right: 1px solid #eee;
+}
+
+.theme-scope hr {
+    border-bottom: 1px solid #eee;
+}
+
+.theme-scope .white-txt {
+    color: #fff !important;
+}
+
+.theme-scope a.navbar-brand {
+    margin-right: 75px;
+    padding-top: 0;
+}
+
+.theme-scope li.nav-item {
+    margin: 0 20px;
+}
+
+.theme-scope a.nav-link {
+    color: #ffffff;
+    padding: 15px 0 20px;
+    font-weight: 300;
+    border-bottom: 3px solid #ab8a3a;
+}
+
+.theme-scope a.nav-link:hover {
+    color: #fff;
+    border-bottom: 3px solid #ffffff;
+}
+
+.theme-scope a.nav-link.active {
+    color: #fff;
+    border-bottom: 3px solid #ffffff;
+}
+
+.theme-scope a.nav-link:focus {
+    color: #aa8a39;
+    border-bottom: 3px solid #aa8a39;
+}
+
+.theme-scope .navbar {
+    padding-bottom: 0;
+}
+
+.theme-scope .top-btn {
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-radius: 3px;
+    transition: ease all 0.2s;
+}
+
+.theme-scope .top-btn:hover {
+    background-color: #aa8a39;
+    color: #fff;
+    border: 1px solid #aa8a39;
+}
+
+.theme-scope .top-sec {
+    background-color: #aa8a39;
+    padding: 6px 0;
+}
+
+.theme-scope .top-sec ul {
+    margin: 0;
+    padding: 0;
+}
+
+.theme-scope .top-sec li {
+    list-style: none;
+    /* float: left; */
+    padding: 0 25px;
+    font-size: 15px;
+    font-weight: 300;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.theme-scope .top-sec li img {
+    margin-top: -3px;
+}
+
+.theme-scope .top-sec li:last-child::after {
+    display: none;
+}
+
+.theme-scope .social img {
+    border: 1px solid #fff;
+    border-radius: 100px;
+    padding: 0px;
+    width: 24px;
+    height: 24px;
+}
+
+.theme-scope .social img:hover {
+    background: #8a6b20;
+}
+
+.theme-scope .social li {
+    padding: 0 5px;
+    float: left;
+}
+
+.theme-scope .social li:last-child {
+    padding-right: 0;
+}
+
+.theme-scope .ban-main {
+    position: relative;
+}
+
+.theme-scope .ban-main::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    background: url('../../../../../public/v2/assets/images/ban-bg.png') repeat-x top left;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.theme-scope .about-ban {
+    background: url('../../../../../public/v2/assets/images/banner-1.jpg') no-repeat left bottom;
+    background-size: cover;
+    /* position: relative; */
+    /* width: 100%;
+    height: 100vh; */
+    /* z-index: 999; */
+    /* margin-top: 4%; */
+
+    position: fixed;
+    width: 100%;
+    height: 95vh;
+    z-index: -1;
+    top: 0;
+}
+
+.theme-scope .subban-txt {
+    position: absolute;
+    top: 5%;
+    left: 0;
+}
+
+.theme-scope .sec-head {
+    margin-top: -50px;
+    position: relative;
+}
+
+.theme-scope h4.sec-heada {
+    position: relative;
+    margin-top: -42px;
+}
+
+.theme-scope .develpers img {
+    background-color: #3f4040;
+    padding: 40px;
+    transition: ease all 0.4s;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.theme-scope .develpers img:hover {
+    background-color: #aa8a39;
+}
+
+.theme-scope .img-fluid {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* home-------- */
+.theme-scope .home-ban {
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    height: 95vh;
+    z-index: -1;
+    top: 0;
+}
+
+.theme-scope .search-div {
+    width: 100%;
+    height: 87vh;
+    display: inline-block;
+    align-self: center;
+    position: relative;
+}
+.theme-scope .search-main {
+    width: 100%;
+    display: inline-block;
+    /* background: #00000056; */
+    padding: 10px 25px 25px 25px;
+    border-radius: 10px;
+    color: #212529;
+    font-weight: 300;
+}
+.theme-scope .search-div ul#pills-tab {
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 6px;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.theme-scope ul#pills-tab {
+    /* background: #fff; */
+    border-radius: 1px;
+    padding: 3px 15px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.theme-scope .search-main a {
+    color: #212529;
+    font-size: 1.1rem;
+}
+.theme-scope .search-main select {
+    color: #212529;
+    font-weight: 300;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+.theme-scope .search-main .nav .nav-item button.active {
+    background-color: #ab8a3a;
+    color: #fff !important;
+    border-radius: 15px;
+}
+.theme-scope .search-main .nav .nav-item button.active::after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    border-radius: 5px 5px 0 0;
+}
+
+.theme-scope .search-main .nav-pills .nav-link {
+    color: #161616;
+    font-weight: 300;
+    font-size: 1.1rem;
+    padding: 0.5rem 3rem;
+}
+
+.theme-scope .search-main li.nav-item {
+    margin: 0 1%;
+}
+
+.theme-scope .map-btn {
+    border: 1px solid #ae8b3b;
+    margin-top: -6px;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 100%;
+    display: inline-block;
+}
+.theme-scope button.btn.dropdown-toggle.btn-light {
+    background: #fff;
+    border: 0;
+    font-weight: 300;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+.theme-scope .search-div #pills-tabContent {
+    border-radius: 30px;
+    background: #fff;
+    padding: 20px;
+    display: inline-block;
+    width: 80%;
+}
+
+.theme-scope div#pills-tabContent {
+    /* border-radius: 30px; */
+    /* background: #fff; */
+    padding: 20px;
+    display: inline-block;
+}
+
+.theme-scope .w-20 {
+    width: 18% !important;
+    /* border-right: 1px solid #212529; */
+}
+
+.theme-scope .search-main .bootstrap-select:not([class*='col-']):not([class*='form-control']):not(.input-group-btn) {
+    width: auto;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.theme-scope .find-btn {
+    width: 19%;
+    display: inline-block;
+    margin-top: 4px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #ac8a3a;
+}
+
+.theme-scope .find-btn a {
+    color: #fff;
+    font-weight: 400;
+}
+
+.theme-scope .find-btn:hover {
+    background: #e9b844;
+}
+
+.theme-scope .pt-80 {
+    padding-top: 80%;
+}
+
+/* -----search ic------- */
+
+.theme-scope .search-box {
+    position: absolute;
+    top: 28%;
+    left: -15px;
+    transform: translate(-50%, -50%);
+    /* background : #ccb47b; */
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    /* width: 250px; */
+}
+
+.theme-scope .search-btn {
+    color: #fff;
+    float: right;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.4s;
+    right: 0;
+    position: absolute;
+    padding: 0;
+    padding-right: 10px;
+    top: 16px;
+}
+
+.theme-scope .search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 22px;
+    width: 0px;
+    /* width: 187px; */
+}
+.theme-scope .search-txt::placeholder {
+    color: #b39b5f;
+}
+.theme-scope .search-box:hover > .search-txt {
+    background: #ab8a3a;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    width: 240px;
+    padding: 8px 20px 4px;
+    margin-top: -0px;
+    /* position: absolute;
+  border-radius: 20px;
+    right: 0;
+    background : #2F3640; */
+}
+.theme-scope .search-box:hover > .search-btn {
+    color: #fff;
+    right: 10px;
+    position: absolute;
+}
+/* -----END search ic------- */
+
+.theme-scope .content-section {
+    margin-top: 00vh; /* To prevent content from hiding under the banner */
+    /* padding: 20px; */
+    transition: opacity 0.5s ease-in-out;
+    background-color: #1a1a1a;
+    position: relative;
+    z-index: 99;
+}
+
+.theme-scope .collapse {
+    visibility: visible;
+}
+
+.theme-scope p img {
+    display: inline !important;
+}
+
+.theme-scope img {
+    display: inline !important;
+}

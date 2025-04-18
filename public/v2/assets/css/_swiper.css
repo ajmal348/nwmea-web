@@ -1,0 +1,138 @@
+:root {
+    --swiper-theme-color: #007aff;
+}
+.theme-scope .swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+.theme-scope .swiper-vertical > .swiper-wrapper {
+    flex-direction: column;
+}
+.theme-scope .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+.theme-scope .swiper-android .swiper-slide,
+.theme-scope .swiper-wrapper {
+    transform: translate3d(0px, 0, 0);
+}
+.theme-scope .swiper-pointer-events {
+    touch-action: pan-y;
+}
+.theme-scope .swiper-pointer-events.swiper-vertical {
+    touch-action: pan-x;
+}
+.theme-scope .swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
+.theme-scope .swiper-slide-invisible-blank {
+    visibility: hidden;
+}
+
+.theme-scope .swiper-autoheight,
+.theme-scope .swiper-autoheight .swiper-slide {
+    height: auto;
+}
+
+.theme-scope .swiper-autoheight .swiper-wrapper {
+    align-items: flex-start;
+    transition-property: transform, height;
+}
+
+.theme-scope .swiper-3d,
+.theme-scope .swiper-3d.swiper-css-mode .swiper-wrapper {
+    perspective: 1200px;
+}
+.theme-scope .swiper-3d .swiper-cube-shadow,
+.theme-scope .swiper-3d .swiper-slide,
+.theme-scope .swiper-3d .swiper-slide-shadow,
+.theme-scope .swiper-3d .swiper-slide-shadow-bottom,
+.theme-scope .swiper-3d .swiper-slide-shadow-left,
+.theme-scope .swiper-3d .swiper-slide-shadow-right,
+.theme-scope .swiper-3d .swiper-slide-shadow-top,
+.theme-scope .swiper-3d .swiper-wrapper {
+    transform-style: preserve-3d;
+}
+.theme-scope .swiper-3d .swiper-slide-shadow,
+.theme-scope .swiper-3d .swiper-slide-shadow-bottom,
+.theme-scope .swiper-3d .swiper-slide-shadow-left,
+.theme-scope .swiper-3d .swiper-slide-shadow-right,
+.theme-scope .swiper-3d .swiper-slide-shadow-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+.theme-scope .swiper-3d .swiper-slide-shadow {
+    background: rgba(0, 0, 0, 0.15);
+}
+.theme-scope .swiper-3d .swiper-slide-shadow-left {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.theme-scope .swiper-3d .swiper-slide-shadow-right {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.theme-scope .swiper-3d .swiper-slide-shadow-top {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.theme-scope .swiper-3d .swiper-slide-shadow-bottom {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.theme-scope .swiper-css-mode > .swiper-wrapper {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.theme-scope .swiper-css-mode > .swiper-wrapper::-webkit-scrollbar {
+    display: none;
+}
+.theme-scope .swiper-css-mode > .swiper-wrapper > .swiper-slide {
+    scroll-snap-align: start start;
+}
+.theme-scope .swiper-horizontal.swiper-css-mode > .swiper-wrapper {
+    scroll-snap-type: x mandatory;
+}
+.theme-scope .swiper-vertical.swiper-css-mode > .swiper-wrapper {
+    scroll-snap-type: y mandatory;
+}
+.theme-scope .swiper-centered > .swiper-wrapper::before {
+    content: '';
+    flex-shrink: 0;
+    order: 9999;
+}
+.theme-scope .swiper-centered.swiper-horizontal > .swiper-wrapper > .swiper-slide:first-child {
+    margin-inline-start: var(--swiper-centered-offset-before);
+}
+.theme-scope .swiper-centered.swiper-horizontal > .swiper-wrapper::before {
+    height: 100%;
+    min-height: 1px;
+    width: var(--swiper-centered-offset-after);
+}
+.theme-scope .swiper-centered.swiper-vertical > .swiper-wrapper > .swiper-slide:first-child {
+    margin-block-start: var(--swiper-centered-offset-before);
+}
+.theme-scope .swiper-centered.swiper-vertical > .swiper-wrapper::before {
+    width: 100%;
+    min-width: 1px;
+    height: var(--swiper-centered-offset-after);
+}
+.theme-scope .swiper-centered > .swiper-wrapper > .swiper-slide {
+    scroll-snap-align: center center;
+}

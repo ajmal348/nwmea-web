@@ -1,0 +1,226 @@
+
+/* ----counter----- */
+
+.counter-box {
+    display: block;
+    background: unset;
+    padding: 40px 20px 37px;
+    text-align: center;
+    position: relative;
+}
+.counter-box img {
+    margin-bottom: 25px;
+}
+.counter-box p {
+    margin: 5px 0 0;
+    padding: 0;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 27px;
+}
+
+.counter-box i {
+    font-size: 60px;
+    margin: 0 0 15px;
+    color: #d2d2d2
+}
+.counter-main{
+    width: 100%; float: left; 
+}
+.counter {
+    display: inline-block;
+    text-align:center;
+    font-size: 65px;
+    font-weight: 600;
+    color: #AA8A39;
+    line-height: 71px
+}
+.d-inline-block{
+    display: inline-block;
+}
+.counter-box h2{
+    font-size: 65px;
+    font-weight: 600;
+    color: #AA8A39;
+    line-height: 71px;
+}
+
+
+.counter-box.colored p,
+.counter-box.colored i,
+.counter-box.colored .counter {
+    color: #AA8A39
+}
+.counter-plus {
+    float: left !important;
+    top:44%;
+    right: 11%;
+    position: absolute;
+    font-size: 65px;
+    color: #AA8A39;
+}
+
+/* ----END counter----- */
+.ceo{
+    width: 100%;
+    display: inline-block;
+    background: url(../images/ceo-bg.jpg) no-repeat top;
+    background-size: cover;
+    padding: 200px 0;
+} 
+.ceo-msg img{
+    border-radius: 10px;
+    filter: grayscale(10);
+    transition: ease all 1s;
+    position: relative;
+}
+.ceo-msg img::before{
+    border: 1px solid #AA8A39;
+    border-radius: 10px;
+    width: 100%;
+    height: 90%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -10%;
+    right: -10px;
+    z-index: 999;
+}
+.ceo-msg img:hover{
+    border-radius: 10px;
+    filter: grayscale(10);
+}
+
+.ceo-img{
+    width: 40%;
+    margin-left: 30px;
+    border-radius: 10px;
+    filter: grayscale(10);
+    transition: ease all 1s;
+}
+.ceo-img:hover{
+    border-radius: 10px;
+    filter: grayscale(0);
+}
+.ceo-img::after{
+    border: 1px solid #AA8A39;
+    border-radius: 10px;
+    width: 100%;
+    height: 90%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -10%;
+    right: -10px;
+    z-index: 999;
+}
+
+.tabs .nav{
+    background-color:#3F4040 ;
+}
+.tabs .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #ab8a3a !important;
+    background-color: unset;
+    border: 0;
+}
+.tabs .nav-item a{
+    color: #fff;
+    padding: 15px 0;
+}
+.tabs .nav-item .active{
+    color:#AA8A39;
+}
+.tabs li.nav-item {
+    width: 29%;
+}
+.tabs-rgt{
+    float: right;
+}
+.tabs-lft{
+    float: left;
+}
+.branches{
+   position: relative;
+}
+.branches::before{
+    width: 100%;
+    height: 40%;
+    background-color: #3F4040;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    display: none;
+}
+.branch-main{
+    /* width: 19%; */
+    /* margin: 0.5%; */
+    /* min-height: 340px; */
+    /* float: left; */
+    text-align: left;
+    background-color: #3F4040;
+    border-radius: 0px;
+    padding: 15px;
+    position: relative;
+}
+.branch-main h2{
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #B6892C;
+    margin-bottom: 15px;
+}
+.branch-main p{
+    font-size:16px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 12px;
+}
+.more-btn-br{
+    background-color: #B6892C;
+    color: #fff;
+    padding: 5px 17px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    border-radius: 4px;
+    transition: ease all 0.2s;
+    display: inline-block;
+    position: absolute;
+    bottom: 15px;
+}
+.more-btn-br:hover{
+    background-color: #dfb560;
+    color: #fff;
+}
+.more-btn{
+    background-color: #B6892C;
+    color: #fff;
+    padding: 9px 55px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-radius: 4px;
+    transition: ease all 0.2s;
+    display: inline-block;
+    margin-top: 10px;
+}
+.more-btn:hover{
+    background-color: #dfb560;
+    color: #fff;
+}
+.rgt-success{
+    margin-right:-50%; 
+}
+.ourceo{
+    margin-left:-35%; 
+}
+.rgt-location{
+    margin-right:-0%; 
+}
+
+
+
