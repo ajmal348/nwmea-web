@@ -1,0 +1,132 @@
+name: Deploy to ECS
+on:
+    push:
+        branches:
+            - main
+            - staging
+            - develop
+            - s3-test
+jobs:
+    deploy:
+        name: build and deploy web service
+        runs-on: ubuntu-latest
+        env:
+            ECR_NAME: nationwide-web
+            AWS_DEFAULT_REGION: us-east-1
+            AWS_UAE_REGION: me-central-1
+            ECS_SERVICE: nationwide-web
+            AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set variables
+              shell: bash
+              id: set-envs
+              run: |
+                  echo "VERSION=$(git describe --tags --abbrev=0 | cut -c2-)" >> $GITHUB_ENV
+                  echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+
+                   if [[ "${{github.ref}}" == "refs/heads/main" ]]; then
+                    echo "ECS_NAMESPACE=Prod" >> $GITHUB_ENV
+                    echo "ECS_Cluster=ProdCluster" >> $GITHUB_ENV
+                    echo "AWS_DEFAULT_REGION=me-central-1" >> $GITHUB_ENV
+                    echo "AWS_REGISTRY_URL=650704518365.dkr.ecr.me-central-1.amazonaws.com" >> $GITHUB_ENV
+                    echo "AWS_ACCESS_KEY_ID=${{ secrets.PROD_AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+                    echo "AWS_SECRET_ACCESS_KEY=${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+                  fi
+                  if [[ "${{github.ref}}" == "refs/heads/develop" || "${{github.ref}}" == "refs/heads/staging" ]]; then
+                    echo "ECS_NAMESPACE=Develop" >> $GITHUB_ENV
+                    echo "ECS_Cluster=Develop" >> $GITHUB_ENV
+                  fi
+
+            - name: Configure AWS Credentials for dev or staging
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ env.AWS_DEFAULT_REGION }}
+              if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/s3-test'
+
+            - name: Configure AWS Credentials for prod at nationwide's aws account
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ env.AWS_DEFAULT_REGION }}
+              if: github.ref == 'refs/heads/main'
+
+            - name: Use node node-version 20
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'npm'
+
+            # Need to use --legacy-peer-deps flag due to react 18 and MUI 4 conflict, we can remove this flag once we upgrade to MUI 5
+            - name: Install using NPM
+              run: npm ci --legacy-peer-deps --force
+
+            - name: Build Npm files [Prod]
+              run: npm run build
+              if: github.ref == 'refs/heads/main'
+
+            - name: Build Npm files [Dev]
+              run: npm run build-dev
+              if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/s3-test'
+
+            - name: Build Npm files [Staging]
+              run: npm run build-stage
+              if: github.ref == 'refs/heads/staging'
+
+              # - name: Deploy with s3 sync and Invalidate CloudFront cache
+              #   run: |
+              #     if [[ "${{github.ref}}" == "refs/heads/main" ]]; then
+              #       aws s3 sync ./build s3://web-nationwide/
+              #       aws cloudfront create-invalidation --distribution-id E2I9G3J7FI8IYR --paths "/*"
+              #     elif [[ "${{github.ref}}" == "refs/heads/develop"  ||  "${{github.ref}}" == "refs/heads/s3-test" ]]; then
+              #       aws s3 sync ./build s3://dev-nationwide-fe/
+              #       aws cloudfront create-invalidation --distribution-id ED0RQCICGSFAI --paths "/*"
+              #     elif [[ "${{github.ref}}" == "refs/heads/staging"  ]]; then
+              #       aws s3 sync ./build s3://staging-nationwide-fe/ --region $AWS_UAE_REGION
+              #       aws cloudfront create-invalidation --distribution-id E21MZTM8HTT86W --paths "/*"
+              #     fi
+              env:
+                  AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+                  AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
+                  AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
+            # see: https://github.com/aws-actions/amazon-ecr-login
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v2
+
+            - name: Build and push Docker image
+              run: |
+                  docker build -t ${{ env.AWS_REGISTRY_URL }}/nationwide-web:${{ env.SHORT_SHA }} -t ${{ env.AWS_REGISTRY_URL }}/nationwide-web:${{ env.ECS_NAMESPACE }} --build-arg ENV=${{ env.ECS_NAMESPACE }} .
+                  docker push -a ${{ env.AWS_REGISTRY_URL }}/nationwide-web
+
+            - name: Deploy With ECS
+              run: |
+                  aws ecs update-service --cluster ${{ env.ECS_Cluster }} --service nationwide-web --force-new-deployment
+              env:
+                  AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+                  AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
+                  AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
+
+            # - name: Notify Slack on publish
+            #   uses: archive/github-actions-slack@master
+            #   with:
+            #     slack-bot-user-oauth-access-token: ${{ secrets.SLACK_USER_AUTH_TOKEN }}
+            #     # SLACK_BOT_TOKEN:  ${{ secrets.slack_user_auth_token }}
+            #     slack-channel: deployment-status
+            #     slack-text: ':white_check_mark: <https://github.com/${{github.repository}}/commit/${{github.sha}}/checks|${{ env.ECR_NAME }}> @ ${{ env.ECS_NAMESPACE }} `${{ env.VERSION }}` published!'
+
+            # - name: Notify Slack on failure
+            #   uses: archive/github-actions-slack@master
+            #   if: failure()
+            #   with:
+            #     slack-bot-user-oauth-access-token: ${{ secrets.SLACK_USER_AUTH_TOKEN }}
+            #     slack-channel: deployment-status
+            #     slack-text: ❌<https://github.com/${{github.repository}}/commit/${{github.sha}}/checks|${{ env.ECR_NAME }}> @ ${{ env.ECS_NAMESPACE }} `${{ env.VERSION }}` Publish failed!!
