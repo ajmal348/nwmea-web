@@ -115,18 +115,4 @@ jobs:
                   AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
                   AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
 
-            # - name: Notify Slack on publish
-            #   uses: archive/github-actions-slack@master
-            #   with:
-            #     slack-bot-user-oauth-access-token: ${{ secrets.SLACK_USER_AUTH_TOKEN }}
-            #     # SLACK_BOT_TOKEN:  ${{ secrets.slack_user_auth_token }}
-            #     slack-channel: deployment-status
-            #     slack-text: ':white_check_mark: <https://github.com/${{github.repository}}/commit/${{github.sha}}/checks|${{ env.ECR_NAME }}> @ ${{ env.ECS_NAMESPACE }} `${{ env.VERSION }}` published!'
 
-            # - name: Notify Slack on failure
-            #   uses: archive/github-actions-slack@master
-            #   if: failure()
-            #   with:
-            #     slack-bot-user-oauth-access-token: ${{ secrets.SLACK_USER_AUTH_TOKEN }}
-            #     slack-channel: deployment-status
-            #     slack-text: ❌<https://github.com/${{github.repository}}/commit/${{github.sha}}/checks|${{ env.ECR_NAME }}> @ ${{ env.ECS_NAMESPACE }} `${{ env.VERSION }}` Publish failed!!

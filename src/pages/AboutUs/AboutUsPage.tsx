@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './aboutUs.css';
+
 import CountUp from 'react-countup';
 import PageLayout from '../PageLayout';
 import { GoogleMap, Marker } from '@react-google-maps/api';
@@ -106,16 +106,16 @@ export const AboutUs = () => {
                         </div>
                         <div className="row partner pt-5">
                             <div className="col-md-3 br-1">
-                                <img src="./assets/v2/images/dubizil.png" />
+                                <img src="/v2/assets/images/dubizil.png" />
                             </div>
                             <div className="col-md-3 br-1">
-                                <img src="./assets/v2/images/propertyfinder.png" />
+                                <img src="/v2/assets/images/propertyfinder.png" />
                             </div>
                             <div className="col-md-3 br-1">
-                                <img src="./assets/v2/images/bayut.png" />
+                                <img src="/v2/assets/images/bayut.png" />
                             </div>
                             <div className="col-md-3">
-                                <img src="./assets/v2/images/aqarmap.png" />
+                                <img src="/v2/assets/images/aqarmap.png" />
                             </div>
                         </div>
                     </div>
@@ -133,52 +133,52 @@ export const AboutUs = () => {
                         </div>
                         <div className="row develpers pt-5">
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/aldar.png" />
+                                <img src="/v2/assets/images/aldar.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/rakproperty.png" />
+                                <img src="/v2/assets/images/rakproperty.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/tiger.png" />
+                                <img src="/v2/assets/images/tiger.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/sobha.png" />
+                                <img src="/v2/assets/images/sobha.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/samana.png" />
+                                <img src="/v2/assets/images/samana.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/reportage.png" />
+                                <img src="/v2/assets/images/reportage.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/bloom.png" />
+                                <img src="/v2/assets/images/bloom.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/eaglehill.png" />
+                                <img src="/v2/assets/images/eaglehill.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/modon.png" />
+                                <img src="/v2/assets/images/modon.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/imkan.png" />
+                                <img src="/v2/assets/images/imkan.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/caliber.png" />
+                                <img src="/v2/assets/images/caliber.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/adcb.png" />
+                                <img src="/v2/assets/images/adcb.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/fab.png" />
+                                <img src="/v2/assets/images/fab.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/emaar.png" />
+                                <img src="/v2/assets/images/emaar.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/damac.png" />
+                                <img src="/v2/assets/images/damac.png" />
                             </div>
                             <div className="col-6 col-md-3">
-                                <img src="./assets/v2/images/bighatti.png" />
+                                <img src="/v2/assets/images/bighatti.png" />
                             </div>
                         </div>
                     </div>
@@ -198,7 +198,7 @@ export const AboutUs = () => {
                         <div className="row">
                             <div className="four col-md-3">
                                 <div className="counter-box">
-                                    <img src={'./assets/v2/images/manageproperty-ic.png'} alt="Imag1" />
+                                    <img src={'/v2/assets/images/manageproperty-ic.png'} alt="Imag1" />
                                     <div className="counter-main">
                                         <span className="counter">
                                             {/* 2000 */}
@@ -220,7 +220,7 @@ export const AboutUs = () => {
                             </div>
                             <div className="four col-md-3">
                                 <div className="counter-box">
-                                    <img src={'./assets/v2/images/satisfyedclient-ic.png'} alt="image2" />
+                                    <img src={'/v2/assets/images/satisfyedclient-ic.png'} alt="image2" />
                                     <div className="counter-main">
                                         <span className="counter">
                                             {/* 100000 */}
@@ -242,7 +242,7 @@ export const AboutUs = () => {
                             </div>
                             <div className="four col-md-3">
                                 <div className="counter-box">
-                                    <img src="./assets/v2/images/topaward-ic.png" alt="image3" />
+                                    <img src="/v2/assets/images/topaward-ic.png" alt="image3" />
                                     <div className="counter-main">
                                         <span className="counter">
                                             <CountUp
@@ -263,7 +263,7 @@ export const AboutUs = () => {
                             </div>
                             <div className="four col-md-3">
                                 <div className="counter-box">
-                                    <img src="./assets/v2/images/expertproffessional-oic.png" alt="image4" />
+                                    <img src="/v2/assets/images/expertproffessional-oic.png" alt="image4" />
                                     <div className="counter-main">
                                         <span className="counter">
                                             <CountUp
@@ -337,7 +337,7 @@ export const AboutUs = () => {
                                 </p>
                             </div>
                             <div className="col-lg-5 ceo-msg">
-                                <img src="./assets/v2/images/amin.jpeg" className="img-fluid" />
+                                <img src="/v2/assets/images/amin.jpeg" className="img-fluid" />
                             </div>
                         </div>
                     </div>
@@ -521,11 +521,11 @@ export const AboutUs = () => {
                                         <div className="col-lg-6 p-4 pl-5">
                                             <h2>DUBAI BRANCH</h2>
                                             <p>
-                                                <img src="./assets/v2/images/map-ic.svg" /> 2 Al Asayel St - Business
+                                                <img src="/v2/assets/images/map-ic.svg" /> 2 Al Asayel St - Business
                                                 Bay - Bay Square - Dubai
                                             </p>
                                             <p>
-                                                <img src="./assets/v2/images/call-ic.svg" /> 04 252 7879
+                                                <img src="/v2/assets/images/call-ic.svg" /> 04 252 7879
                                             </p>
                                         </div>
                                         <div className="col-lg-6">
@@ -569,11 +569,11 @@ export const AboutUs = () => {
                                                         {branch.Name}
                                                     </h2>
                                                     <p>
-                                                        <img src="./assets/v2/images/map-ic.svg" />
+                                                        <img src="/v2/assets/images/map-ic.svg" />
                                                         {branch.Address.replace('/n', '<br/>')}
                                                     </p>
                                                     <p>
-                                                        <img src="./assets/v2/images/call-ic.svg" />
+                                                        <img src="/v2/assets/images/call-ic.svg" />
                                                         {branch.ContactNo}
                                                     </p>
                                                     {branch.key < 3 && <hr />}
@@ -582,22 +582,22 @@ export const AboutUs = () => {
 
                                             {/* <h2>ABUDHABI-HEADQUARTER</h2>
                                             <p>
-                                                <img src="./assets/v2/images/map-ic.svg" />
+                                                <img src="/v2/assets/images/map-ic.svg" />
                                                 Das Tower, Sultan Bin Zayed Street
                                                 <br />
                                                 32nd Street - Khalidiyah St - Abu Dhabi
                                             </p>
                                             <p>
-                                                <img src="./assets/v2/images/call-ic.svg" /> +971 800 1444
+                                                <img src="/v2/assets/images/call-ic.svg" /> +971 800 1444
                                             </p>
                                             <hr />
                                             <h2 className="white-txt">ABUDHABI HEADQUARTER</h2>
                                             <p>
-                                                <img src="./assets/v2/images/map-ic.svg" />
+                                                <img src="/v2/assets/images/map-ic.svg" />
                                                 Yas Island - West Yas Plaza - - Abu Dhabi
                                             </p>
                                             <p>
-                                                <img src="./assets/v2/images/call-ic.svg" /> +971524890630
+                                                <img src="/v2/assets/images/call-ic.svg" /> +971524890630
                                             </p> */}
                                         </div>
                                         <div className="col-lg-6">
@@ -622,11 +622,11 @@ export const AboutUs = () => {
                                         <div className="col-lg-6 p-4 pl-5">
                                             <h2>DUBAI BRANCH</h2>
                                             <p>
-                                                <img src="./assets/v2/images/map-ic.svg" /> 2 Al Asayel St - Business
+                                                <img src="/v2/assets/images/map-ic.svg" /> 2 Al Asayel St - Business
                                                 Bay - Bay Square - Dubai
                                             </p>
                                             <p>
-                                                <img src="./assets/v2/images/call-ic.svg" /> 04 252 7879
+                                                <img src="/v2/assets/images/call-ic.svg" /> 04 252 7879
                                             </p>
                                         </div>
                                         <div className="col-lg-6">
